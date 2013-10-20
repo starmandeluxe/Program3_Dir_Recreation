@@ -1,0 +1,276 @@
+<html>
+<head>
+<title>
+CSC 357 Program 3 Test Plan
+</title>
+</head>
+<body bgcolor=white>
+<p align=center>
+<font size=+2>
+<strong>CSC 357 Program 3 Test Plan</strong>
+</font>
+</p>
+<p>
+This is an input/output test plan for programming assignment 3.  In this plan,
+there are no input data files.  Rather, each input is in the form of
+<tt>dir</tt> command, the output of which is redirected by the testing script
+to a file.
+<p>
+The listed "<tt>cd</tt>" commands are not considered test cases.  They are the
+means to provide a directory context for executing the cases that follow.  The
+testing script records the path of the <tt>dir</tt> executable program, so it
+can be consistency located when the working directory changes during script
+execution.
+</p><p>
+Note that the raw score totals 120 points possible.  The online copy of the
+writeup has been adjusted accordingly.
+<br>
+<br>
+<table align=center border=1 cellpadding=4>
+  <tr>
+    <td valign=top><strong>Case</strong>
+    <td valign=top><strong>Command</strong>
+    <td valign=top><strong>Output File</strong>
+    <td valign=top><strong>Remarks</strong>
+    <td valign=top><strong>Points</strong>
+  <tr>
+    <td valign=top>
+    <td valign=top>cd  ~gfisher/classes/357
+  <tr>
+    <td valign=top>&nbsp;&nbsp;1
+    <td valign=top>dir
+    <td valign=top>dir.out
+    <td valign=top>default format
+    <td valign=top>8
+  <tr>
+    <td valign=top>&nbsp;&nbsp;2
+    <td valign=top>dir ~gfisher/classes/357
+    <td valign=top>dir2.out
+    <td valign=top>same as case 1
+    <td valign=top>5
+  <tr>
+    <td valign=top>
+    <td valign=top>cd  ~gfisher/classes/357/programs/3/testing
+  <tr>
+    <td valign=top>&nbsp;&nbsp;3
+    <td valign=top>dir plan.pdf
+    <td valign=top>dir<tt>-</tt>plan.out
+    <td valign=top>a single file
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;4
+    <td valign=top>dir *
+    <td valign=top>dir<tt>-</tt>star.out
+    <td valign=top>all non<tt>-</tt>dot files
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;5
+    <td valign=top>dir<tt>&nbsp;-</tt>ad
+    <td valign=top>dir<tt>-</tt>ad.out
+    <td valign=top>just dirs
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;6
+    <td valign=top>dir<tt>&nbsp;-</tt>ar
+    <td valign=top>dir<tt>-</tt>ar.out
+    <td valign=top>just read only
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;7
+    <td valign=top>dir<tt>&nbsp;-</tt>a<tt>^</tt>d
+    <td valign=top>dir<tt>-</tt>a<tt>^</tt>d.out
+    <td valign=top>all but dirs
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;8
+    <td valign=top>dir<tt>&nbsp;-</tt>a<tt>^</tt>r
+    <td valign=top>dir<tt>-</tt>a<tt>^</tt>d.out
+    <td valign=top>all but read only
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;9
+    <td valign=top>dir<tt>&nbsp;-</tt>b
+    <td valign=top>dir<tt>-</tt>b.out
+    <td valign=top>bare format
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;10
+    <td valign=top>dir<tt>&nbsp;-</tt>c
+    <td valign=top>dir<tt>-</tt>c.out
+    <td valign=top>same as default
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;11
+    <td valign=top>dir<tt>&nbsp;-</tt><tt>^</tt>c
+    <td valign=top>dir<tt>-</tt><tt>^</tt>c.out
+    <td valign=top>no 1000's commas
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;12
+    <td valign=top>dir<tt>&nbsp;-</tt>bc
+    <td valign=top>dir<tt>-</tt>bc.out
+    <td valign=top>same as just <tt>&nbsp;-</tt>b
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;13
+    <td valign=top>dir<tt>&nbsp;-</tt>on
+    <td valign=top>dir<tt>-</tt>on.out
+    <td valign=top>same as default
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;14
+    <td valign=top>dir<tt>&nbsp;-</tt>oe
+    <td valign=top>dir<tt>-</tt>oe.out
+    <td valign=top>sorted by extension
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;15
+    <td valign=top>dir<tt>&nbsp;-</tt>og
+    <td valign=top>dir<tt>-</tt>og.out
+    <td valign=top>sorted dirs first
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;16
+    <td valign=top>dir<tt>&nbsp;-</tt>os
+    <td valign=top>dir<tt>-</tt>os.out
+    <td valign=top>sorted by size
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;17
+    <td valign=top>dir<tt>&nbsp;-</tt>od
+    <td valign=top>dir<tt>-</tt>o<tt>^</tt>d.out
+    <td valign=top>sorted by date
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;18
+    <td valign=top>dir<tt>&nbsp;-</tt>o<tt>^</tt>n
+    <td valign=top>dir<tt>-</tt>o<tt>^</tt>n.out
+    <td valign=top>reverse <tt>&nbsp;-</tt>on
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;19
+    <td valign=top>dir<tt>&nbsp;-</tt>o<tt>^</tt>e
+    <td valign=top>dir<tt>-</tt>o<tt>^</tt>e.out
+    <td valign=top>reverse <tt>&nbsp;-</tt>oe
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;20
+    <td valign=top>dir<tt>&nbsp;-</tt>o<tt>^</tt>g
+    <td valign=top>dir<tt>-</tt>o<tt>^</tt>g.out
+    <td valign=top>reverse <tt>&nbsp;-</tt>og
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;21
+    <td valign=top>dir<tt>&nbsp;-</tt>o<tt>^</tt>s
+    <td valign=top>dir<tt>-</tt>o<tt>^</tt>s.out
+    <td valign=top>reverse <tt>&nbsp;-</tt>os
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;22
+    <td valign=top>dir<tt>&nbsp;-</tt>o<tt>^</tt>d
+    <td valign=top>dir<tt>-</tt>o<tt>^</tt>d.out
+    <td valign=top>reverse <tt>&nbsp;-</tt>od
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;23
+    <td valign=top>dir<tt>&nbsp;-</tt>q
+    <td valign=top>dir<tt>-</tt>q.out
+    <td valign=top>display owner
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;24
+    <td valign=top>dir<tt>&nbsp;-</tt>s
+    <td valign=top>dir<tt>-</tt>s.out
+    <td valign=top>recursive all subdirs
+    <td valign=top>8
+  <tr>
+    <td valign=top>&nbsp;&nbsp;25
+    <td valign=top>dir<tt>&nbsp;-</tt>sb
+    <td valign=top>dir<tt>-</tt>sb.out
+    <td valign=top>recursive bare
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;26
+    <td valign=top>dir<tt>&nbsp;-</tt>tc
+    <td valign=top>dir<tt>-</tt>tc.out
+    <td valign=top>display create time
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;27
+    <td valign=top>dir<tt>&nbsp;-</tt>ta
+    <td valign=top>dir<tt>-</tt>ta.out
+    <td valign=top>display access time
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;28
+    <td valign=top>dir<tt>&nbsp;-</tt>tw
+    <td valign=top>dir<tt>-</tt>tw.out
+    <td valign=top>display write (modify) time
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;29
+    <td valign=top>dir<tt>&nbsp;-</tt>w
+    <td valign=top>dir<tt>-</tt>w.out
+    <td valign=top>wide format
+    <td valign=top>5
+  <tr>
+    <td valign=top>&nbsp;&nbsp;30
+    <td valign=top>dir<tt>&nbsp;-</tt>ws
+    <td valign=top>dir<tt>-</tt>ws.out
+    <td valign=top>wide recursive
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;31
+    <td valign=top>dir<tt>&nbsp;-</tt>wsb
+    <td valign=top>dir<tt>-</tt>wsb.out
+    <td valign=top>wide bare recursive
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;32
+    <td valign=top>dir<tt>&nbsp;-</tt>w <tt>-</tt>s <tt>-</tt>b
+    <td valign=top>dir<tt>-</tt>w<tt>-</tt>s<tt>-</tt>b.out
+    <td valign=top>same as <tt>&nbsp;-</tt>wsb
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;33
+    <td valign=top>dir<tt>&nbsp;-</tt>wsb <tt>&nbsp;-</tt>o<tt>^</tt>n
+    <td valign=top>dir<tt>-</tt>wsb<tt>-</tt>o<tt>^</tt>n.out
+    <td valign=top>reverse of <tt>&nbsp;-</tt>wsb
+    <td valign=top>3
+  <tr>
+    <td valign=top>&nbsp;&nbsp;34
+    <td valign=top>dir<tt>&nbsp;-</tt><tt>^</tt>4
+    <td valign=top>dir<tt>-</tt><tt>^</tt>4.out
+    <td valign=top>two<tt>-</tt>digit year
+    <td valign=top>3
+  <tr>
+    <td valign=top>
+    <td valign=top>cd ../..
+  <tr>
+    <td valign=top>&nbsp;&nbsp;35
+    <td valign=top>dir<tt>&nbsp;-</tt>s
+    <td valign=top>dir<tt>-</tt>s.out
+    <td valign=top>longer display
+    <td valign=top>4
+</table>
+<br>
+<br>
+<strong>Notes:</strong>
+<ol type=1>
+<li>
+For the purposes of the <tt>-ar</tt> option, a read-only file is defined as one
+that is writable by no one, including the owner.
+<li>
+You can assume a display width of 80 columns for the purposes of the
+<tt>-w</tt> option.
+<li>
+The <tt>-wsb</tt> combination of options flattens the entire recursive listing,
+sorts by the default or specified sorting option, and prefixes each file name
+with the full path.  Note that name sorting does not use the path-prefixed
+filename, but the root filename.
+<li>
+Even though it appears not to work on Windows XP, the meaning of the
+<tt>-^4</tt> option is to print years using two digits instead of four.
+</ol>
+</body>
+</html>

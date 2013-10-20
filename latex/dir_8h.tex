@@ -1,0 +1,271 @@
+\section{dir.h File Reference}
+\label{dir_8h}\index{dir.h@{dir.h}}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf TIME\_\-C}~1\label{dir_8h_59c9f23a58a43eba5b53da974d2eb0f6}
+
+\item 
+\#define {\bf TIME\_\-A}~2\label{dir_8h_f3446ee0eca6a4a6f4d6f54223948267}
+
+\item 
+\#define {\bf TIME\_\-W}~3\label{dir_8h_8b6b1dd6d1c296eb659c2559b9c60361}
+
+\item 
+\#define {\bf DIRS\_\-ONLY}~4\label{dir_8h_e918579168b8ff88c0e2661477940bc2}
+
+\item 
+\#define {\bf RD\_\-ONLY}~5\label{dir_8h_6d7dddcf51acb8c09bde911284b3b7fc}
+
+\item 
+\#define {\bf DIRS\_\-RD}~6\label{dir_8h_aaa76a8ede2de15a5998a1ceea79d27c}
+
+\item 
+\#define {\bf PERM\_\-NONE}~7\label{dir_8h_ca8351770ad21d2a65db52aff429f09d}
+
+\item 
+\#define {\bf PERM\_\-ALL}~13\label{dir_8h_4331309f3d0d1016c5c640c7d9aa40e2}
+
+\item 
+\#define {\bf NOT\_\-RD\_\-ONLY}~14\label{dir_8h_f41b2ff6ab562d87ea14a05ee4ed433a}
+
+\item 
+\#define {\bf NOT\_\-DIRS}~15\label{dir_8h_ad2530eab4c554cce6db4926f033aa46}
+
+\item 
+\#define {\bf SORT\_\-N}~8;\label{dir_8h_f7808dda2d13a97e1aaeeff98ea933f9}
+
+\item 
+\#define {\bf SORT\_\-S}~9;\label{dir_8h_e2dfa3c2127e9e9059b24ac52cd2fbbd}
+
+\item 
+\#define {\bf SORT\_\-E}~10;\label{dir_8h_9de7b8ce82beaeadcc52b2886b5e500a}
+
+\item 
+\#define {\bf SORT\_\-D}~11;\label{dir_8h_c5ce395495aad5bba6e21611fe06f5e3}
+
+\item 
+\#define {\bf SORT\_\-G}~12;\label{dir_8h_c259000a27aec8f7d566211a872af955}
+
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int {\bf printcwd} (char $\ast$path)
+\item 
+void {\bf printdir} ()
+\item 
+void {\bf wide} ()
+\item 
+int {\bf comparedate} (struct tm $\ast$tm, struct tm $\ast$tm2)
+\item 
+dirent $\ast$$\ast$ {\bf alphabetsort} (DIR $\ast$dirp, char $\ast$path)
+\item 
+dirent $\ast$$\ast$ {\bf sizesort} (DIR $\ast$dirp, char $\ast$path)
+\item 
+dirent $\ast$$\ast$ {\bf timesort} (DIR $\ast$dirp, char $\ast$path)
+\item 
+dirent $\ast$$\ast$ {\bf dirsort} (DIR $\ast$dirp, char $\ast$path)
+\item 
+dirent $\ast$$\ast$ {\bf extsort} (DIR $\ast$dirp, char $\ast$path)
+\item 
+char $\ast$ {\bf get\-Ext} (char $\ast$name)
+\item 
+void {\bf subdirs} ()
+\item 
+int {\bf visit} (const char $\ast$path, const struct stat $\ast$stat, int flags, struct FTW $\ast$ftw)
+\item 
+int {\bf visitbare} (const char $\ast$path, const struct stat $\ast$stat, int flags, struct FTW $\ast$ftw)
+\item 
+int {\bf widevisit} (const char $\ast$path, const struct stat $\ast$statbuf, int flags, struct FTW $\ast$ftw)
+\item 
+void {\bf attributes} ()\label{dir_8h_d5d0ee102c2470b8f384863496e93b73}
+
+\item 
+char $\ast$ {\bf separator} (int input)
+\item 
+void {\bf bare} ()
+\item 
+void {\bf parse} (int argc, char $\ast$$\ast$argv)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Alex Kort, 4-9-06, Program 3, {\bf dir.h}{\rm (p.\,\pageref{dir_8h})} 
+
+\subsection{Function Documentation}
+\index{dir.h@{dir.h}!alphabetsort@{alphabetsort}}
+\index{alphabetsort@{alphabetsort}!dir.h@{dir.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}struct dirent$\ast$$\ast$ alphabetsort (DIR $\ast$ {\em dirp}, char $\ast$ {\em path})}\label{dir_8h_2684b144ccffca43c2bd84d19795f700}
+
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em dirp}]The directory to open \item[{\em path}]String of the pathname to open \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]An array of dirents of all the elements in the directory \end{Desc}
+\index{dir.h@{dir.h}!bare@{bare}}
+\index{bare@{bare}!dir.h@{dir.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void bare ()}\label{dir_8h_d4957954133b9e627d0b769ea5851a4b}
+
+
+display with no heading or summary \index{dir.h@{dir.h}!comparedate@{comparedate}}
+\index{comparedate@{comparedate}!dir.h@{dir.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int comparedate (struct tm $\ast$ {\em tm}, struct tm $\ast$ {\em tm2})}\label{dir_8h_e080fb0b0c9f9f1b39792d9c03f7ad11}
+
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em $\ast$tm}]The first time to compare \item[{\em $\ast$tm2}]The second time to compare \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]1 if greater, -1 if less, or zero if equal \end{Desc}
+\index{dir.h@{dir.h}!dirsort@{dirsort}}
+\index{dirsort@{dirsort}!dir.h@{dir.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}struct dirent$\ast$$\ast$ dirsort (DIR $\ast$ {\em dirp}, char $\ast$ {\em path})}\label{dir_8h_13b4a073dc6dca161b39fdfd42f6a6e2}
+
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em dirp}]The directory to open \item[{\em path}]String of the pathname to open \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]An array of dirents of all the elements in the directory \end{Desc}
+\index{dir.h@{dir.h}!extsort@{extsort}}
+\index{extsort@{extsort}!dir.h@{dir.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}struct dirent$\ast$$\ast$ extsort (DIR $\ast$ {\em dirp}, char $\ast$ {\em path})}\label{dir_8h_14a9483372576e318550bc8c78065a86}
+
+
+/$\ast$$\ast$ \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em dirp}]The directory to open \item[{\em path}]String of the pathname to open \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]An array of dirents of all the elements in the directory \end{Desc}
+\index{dir.h@{dir.h}!getExt@{getExt}}
+\index{getExt@{getExt}!dir.h@{dir.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ get\-Ext (char $\ast$ {\em name})}\label{dir_8h_b5146e12b68e0fa300b937c05e77e0ea}
+
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em name}]The name of the file whose extension to return \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]A string of the file's extension \end{Desc}
+\index{dir.h@{dir.h}!parse@{parse}}
+\index{parse@{parse}!dir.h@{dir.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void parse (int {\em argc}, char $\ast$$\ast$ {\em argv})}\label{dir_8h_66fa8f960eac1bf561ba2cb8be0cc58a}
+
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em argc}]The number of arguments passed from the command line \item[{\em argv}]The list of strings from the command line\end{description}
+\end{Desc}
+After getting directories, get each option and set constants \index{dir.h@{dir.h}!printcwd@{printcwd}}
+\index{printcwd@{printcwd}!dir.h@{dir.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int printcwd (char $\ast$ {\em path})}\label{dir_8h_6d7841070d2de02a436b0c1ddd0a33f4}
+
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em path}]The path to get and print out \end{description}
+\end{Desc}
+\index{dir.h@{dir.h}!printdir@{printdir}}
+\index{printdir@{printdir}!dir.h@{dir.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void printdir ()}\label{dir_8h_c92ccf131b6252a18153ea39ca6786ed}
+
+
+Function that does all the printing work as well as formats according to the command line options
+
+Determine the sorting method
+
+get the correct time as specified in the command line
+
+symbolic links
+
+directories only print out the files according to attributes from command line and file types
+
+read only files
+
+default year is 4 digits, if it was unset then print only last 2
+
+print the date \index{dir.h@{dir.h}!separator@{separator}}
+\index{separator@{separator}!dir.h@{dir.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ separator (int {\em input})}\label{dir_8h_39dc54c3a499efadd208cc6482f2034f}
+
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em input}]The int to convert into a comma string \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]A string of the converted integer \end{Desc}
+\index{dir.h@{dir.h}!sizesort@{sizesort}}
+\index{sizesort@{sizesort}!dir.h@{dir.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}struct dirent$\ast$$\ast$ sizesort (DIR $\ast$ {\em dirp}, char $\ast$ {\em path})}\label{dir_8h_57b505a098447a3e63c6f3528cfe7508}
+
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em dirp}]The directory to open \item[{\em path}]String of the pathname to open \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]An array of dirents of all the elements in the directory \end{Desc}
+\index{dir.h@{dir.h}!subdirs@{subdirs}}
+\index{subdirs@{subdirs}!dir.h@{dir.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void subdirs ()}\label{dir_8h_10a72ffadf5d8b455877bf1757b31cfb}
+
+
+recurse through subdirectories and print out contents of each \index{dir.h@{dir.h}!timesort@{timesort}}
+\index{timesort@{timesort}!dir.h@{dir.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}struct dirent$\ast$$\ast$ timesort (DIR $\ast$ {\em dirp}, char $\ast$ {\em path})}\label{dir_8h_a8c9478da23709170570587079d936d9}
+
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em dirp}]The directory to open \item[{\em path}]String of the pathname to open \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]An array of dirents of all the elements in the directory \end{Desc}
+\index{dir.h@{dir.h}!visit@{visit}}
+\index{visit@{visit}!dir.h@{dir.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int visit (const char $\ast$ {\em string}, const struct stat $\ast$ {\em statbuf}, int {\em flags}, struct FTW $\ast$ {\em ftw})}\label{dir_8h_6aaafc14235ec222b836a0c2904754c4}
+
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em string}]The pathname supplied \item[{\em statbuf}]the stat struct holding file info \item[{\em flags}]optional flag int \item[{\em ftw}]pointer to ftw struct \end{description}
+\end{Desc}
+\index{dir.h@{dir.h}!visitbare@{visitbare}}
+\index{visitbare@{visitbare}!dir.h@{dir.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int visitbare (const char $\ast$ {\em path}, const struct stat $\ast$ {\em statbuf}, int {\em flags}, struct FTW $\ast$ {\em ftw})}\label{dir_8h_519d854245c038268702e9048802186f}
+
+
+Visit function for bare recursive function \index{dir.h@{dir.h}!wide@{wide}}
+\index{wide@{wide}!dir.h@{dir.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void wide ()}\label{dir_8h_296e4d798368b2136158a86aa0b74e4f}
+
+
+Print function sideways to a max width of 80 \index{dir.h@{dir.h}!widevisit@{widevisit}}
+\index{widevisit@{widevisit}!dir.h@{dir.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int widevisit (const char $\ast$ {\em path}, const struct stat $\ast$ {\em statbuf}, int {\em flags}, struct FTW $\ast$ {\em ftw})}\label{dir_8h_3cd01b34455f6845ef6d047bd9810351}
+
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em path}]The pathname supplied \item[{\em statbuf}]the stat struct holding file info \item[{\em flags}]optional flag int \item[{\em ftw}]pointer to ftw struct \end{description}
+\end{Desc}

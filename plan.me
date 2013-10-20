@@ -1,0 +1,100 @@
+.sz 10
+.ds ~ /users/gfisher/nroff
+. so \*~/stdhdr.me
+.he 'CSC357-S06-Prog3-test-plan''Page %'
+... .po .7i
+.m4 2v
+.(TI "CSC 357 Program 3 Test Plan"
+.(S +2
+\fBCSC 357 Program 3 Test Plan\fP
+.)S
+.)TI
+.sp
+This is an input/output test plan for programming assignment 3.  In this plan,
+there are no input data files.  Rather, each input is in the form of \fCdir\fP
+command, the output of which is redirected by the testing script to a file.
+.pp
+The listed "\fCcd\fP" commands are not considered test cases.  They are the
+means to provide a directory context for executing the cases that follow.  The
+testing script records the path of the \fCdir\fP executable program, so it can
+be consistency located when the working directory changes during script
+execution.
+.pp
+Note that the raw score totals 120 points possible.  The online copy of the
+writeup has been adjusted accordingly.
+.sp .6v
+.TS
+center;
+l l l l l
+l | l | l | l | l.
+.nr N 0 1
+.nr M 0 1
+\fBCase\fP	\fBCommand\fP	\fBOutput File\fP	\fBRemarks\fP	\fBPoints\fP
+. sp .2v
+=
+. sp .2v
+	cd  ~gfisher/classes/357
+\ \ \n+N	dir	dir.out	default format	8
+\ \ \n+N	dir ~gfisher/classes/357	dir2.out	same as case 1	5
+	cd  ~gfisher/classes/357/programs/3/testing
+\ \ \n+N	dir plan.pdf	dir\fC-\fPplan.out	a single file	3
+\ \ \n+N	dir *	dir\fC-\fPstar.out	all non\fC-\fPdot files	3
+\ \ \n+N	dir\fC\ -\fPad	dir\fC-\fPad.out	just dirs	3
+\ \ \n+N	dir\fC\ -\fPar	dir\fC-\fPar.out	just read only	3
+\ \ \n+N	dir\fC\ -\fPa\fC^\fPd	dir\fC-\fPa\fC^\fPd.out	all but dirs	3
+\ \ \n+N	dir\fC\ -\fPa\fC^\fPr	dir\fC-\fPa\fC^\fPd.out	all but read only	3
+\ \ \n+N	dir\fC\ -\fPb	dir\fC-\fPb.out	bare format	3
+\ \ \n+N	dir\fC\ -\fPc	dir\fC-\fPc.out	same as default	3
+\ \ \n+N	dir\fC\ -\fP\fC^\fPc	dir\fC-\fP\fC^\fPc.out	no 1000's commas	3
+\ \ \n+N	dir\fC\ -\fPbc	dir\fC-\fPbc.out	same as just \fC\ -\fPb	3
+\ \ \n+N	dir\fC\ -\fPon	dir\fC-\fPon.out	same as default	3
+\ \ \n+N	dir\fC\ -\fPoe	dir\fC-\fPoe.out	sorted by extension	3
+\ \ \n+N	dir\fC\ -\fPog	dir\fC-\fPog.out	sorted dirs first	3
+\ \ \n+N	dir\fC\ -\fPos	dir\fC-\fPos.out	sorted by size	3
+\ \ \n+N	dir\fC\ -\fPod	dir\fC-\fPo\fC^\fPd.out	sorted by date	3
+\ \ \n+N	dir\fC\ -\fPo\fC^\fPn	dir\fC-\fPo\fC^\fPn.out	reverse \fC\ -\fPon	3
+\ \ \n+N	dir\fC\ -\fPo\fC^\fPe	dir\fC-\fPo\fC^\fPe.out	reverse \fC\ -\fPoe	3
+\ \ \n+N	dir\fC\ -\fPo\fC^\fPg	dir\fC-\fPo\fC^\fPg.out	reverse \fC\ -\fPog	3
+\ \ \n+N	dir\fC\ -\fPo\fC^\fPs	dir\fC-\fPo\fC^\fPs.out	reverse \fC\ -\fPos	3
+\ \ \n+N	dir\fC\ -\fPo\fC^\fPd	dir\fC-\fPo\fC^\fPd.out	reverse \fC\ -\fPod	3
+\ \ \n+N	dir\fC\ -\fPq	dir\fC-\fPq.out	display owner	3
+\ \ \n+N	dir\fC\ -\fPs	dir\fC-\fPs.out	recursive all subdirs	8
+\ \ \n+N	dir\fC\ -\fPsb	dir\fC-\fPsb.out	recursive bare	3
+\ \ \n+N	dir\fC\ -\fPtc	dir\fC-\fPtc.out	display create time	3
+\ \ \n+N	dir\fC\ -\fPta	dir\fC-\fPta.out	display access time	3
+\ \ \n+N	dir\fC\ -\fPtw	dir\fC-\fPtw.out	display write (modify) time	3
+\ \ \n+N	dir\fC\ -\fPw	dir\fC-\fPw.out	wide format	5
+\ \ \n+N	dir\fC\ -\fPws	dir\fC-\fPws.out	wide recursive	3
+\ \ \n+N	dir\fC\ -\fPwsb	dir\fC-\fPwsb.out	wide bare recursive	3
+\ \ \n+N	dir\fC\ -\fPw \fC\-\fPs \fC\-\fPb	dir\fC-\fPw\fC-\fPs\fC-\fPb.out	same as \fC\ -\fPwsb	3
+\ \ \n+N	dir\fC\ -\fPwsb \fC\ -\fPo\fC^\fPn	dir\fC-\fPwsb\fC-\fPo\fC^\fPn.out	reverse of \fC\ -\fPwsb	3
+\ \ \n+N	dir\fC\ -\fP\fC^\fP4	dir\fC-\fP\fC^\fP4.out	two\fC-\fPdigit year	3
+	cd ../..
+\ \ \n+N	dir\fC\ -\fPs	dir\fC-\fPs.out	longer display	4
+.TE
+.sp .6v
+.if !\nh \{\
+.(C
+\f[BI](See Notes on next page.)\fP
+.)C
+.bp
+.\}
+\fBNotes:\fP
+.(L 1 .4v
+.le
+For the purposes of the \fC\-ar\fP option, a read-only file is defined
+as one that is writable by no one, including the owner.
+.le
+You can assume a display width of 80 columns for the purposes of the \fC\-w\fP
+option.
+.le
+The \fC-wsb\fP combination of options flattens the entire recursive listing,
+sorts by the default or specified sorting option, and prefixes each file name
+with the full path.  Note that name sorting does not use the path-prefixed
+filename, but the root filename.
+.le
+Even though it appears not to work on Windows XP, the meaning of the
+\fC-^4\fP option is to print years using two digits instead of four.
+.)L 1
+.\" LocalWords:  dir pdf dirs ar ir bc oe og os od subdirs sb tc ta tw ws wsb
+.\" LocalWords:  XP Prog sp BI CSC po cd gfisher

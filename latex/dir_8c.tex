@@ -1,0 +1,443 @@
+\section{dir.c File Reference}
+\label{dir_8c}\index{dir.c@{dir.c}}
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$stddef.h$>$}\par
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$string.h$>$}\par
+{\tt \#include $<$fcntl.h$>$}\par
+{\tt \#include $<$sys/types.h$>$}\par
+{\tt \#include $<$sys/stat.h$>$}\par
+{\tt \#include $<$dirent.h$>$}\par
+{\tt \#include $<$errno.h$>$}\par
+{\tt \#include $<$strings.h$>$}\par
+{\tt \#include $<$unistd.h$>$}\par
+{\tt \#include $<$grp.h$>$}\par
+{\tt \#include $<$time.h$>$}\par
+{\tt \#include $<$locale.h$>$}\par
+{\tt \#include $<$langinfo.h$>$}\par
+{\tt \#include $<$stdint.h$>$}\par
+{\tt \#include $<$pwd.h$>$}\par
+{\tt \#include $<$ftw.h$>$}\par
+{\tt \#include $<$sys/statvfs.h$>$}\par
+{\tt \#include \char`\"{}dir.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int {\bf main} (int argc, char $\ast$argv[$\,$])
+\item 
+void {\bf parse} (int argc, char $\ast$$\ast$argv)
+\item 
+void {\bf printdir} ()
+\item 
+int {\bf printcwd} (char $\ast$path)
+\item 
+void {\bf bare} ()
+\item 
+char $\ast$ {\bf separator} (int input)
+\item 
+void {\bf subdirs} ()
+\item 
+int {\bf widevisit} (const char $\ast$path, const struct stat $\ast$statbuf, int flags, struct FTW $\ast$ftw)
+\item 
+int {\bf visitbare} (const char $\ast$path, const struct stat $\ast$statbuf, int flags, struct FTW $\ast$ftw)
+\item 
+int {\bf visit} (const char $\ast$string, const struct stat $\ast$statbuf, int flags, struct FTW $\ast$ftw)
+\item 
+void {\bf wide} ()
+\item 
+dirent $\ast$$\ast$ {\bf alphabetsort} (DIR $\ast$dirp, char $\ast$path)
+\item 
+dirent $\ast$$\ast$ {\bf extsort} (DIR $\ast$dirp, char $\ast$path)
+\item 
+char $\ast$ {\bf get\-Ext} (char $\ast$name)
+\item 
+dirent $\ast$$\ast$ {\bf sizesort} (DIR $\ast$dirp, char $\ast$path)
+\item 
+dirent $\ast$$\ast$ {\bf dirsort} (DIR $\ast$dirp, char $\ast$path)
+\item 
+dirent $\ast$$\ast$ {\bf timesort} (DIR $\ast$dirp, char $\ast$path)
+\item 
+int {\bf comparedate} (struct tm $\ast$tm, struct tm $\ast$tm2)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+char $\ast$$\ast$ {\bf dirs}
+\item 
+char $\ast$ {\bf home\-Dir}
+\item 
+char $\ast$ {\bf prevdir}
+\item 
+int {\bf num\-Bytes}
+\item 
+int {\bf num\-Bytes\-Free}
+\item 
+int {\bf num\-Files}
+\item 
+int {\bf num\-Dirs}
+\item 
+long {\bf total\-Bytes}
+\item 
+long {\bf total\-Bytes\-Free}
+\item 
+int {\bf total\-Files}
+\item 
+int {\bf alltotal\-Dirs}
+\item 
+int {\bf longest}
+\item 
+int {\bf status}
+\item 
+int {\bf file\-Found}
+\item 
+int {\bf total\-Dirs}
+\item 
+int {\bf first\-Time} = 1
+\item 
+int {\bf i}
+\item 
+int {\bf is\-A}
+\item 
+int {\bf is\-Perm} = PERM\_\-ALL\label{dir_8c_751013063353ff78ee942c99bebac30f}
+
+\item 
+int {\bf is\-B}\label{dir_8c_9849fbaf04c204000693d1788548b58b}
+
+\item 
+int {\bf is\-C} = 1\label{dir_8c_b2e184614ace2f5dcf26ca03d9be5554}
+
+\item 
+int {\bf is\-D}\label{dir_8c_635a4ee08d2cef4ff88dced50efa31e6}
+
+\item 
+int {\bf is\-O}\label{dir_8c_f0c5dab1fda5208d84f0d282c656666a}
+
+\item 
+int {\bf is\-Sort} = SORT\_\-N\label{dir_8c_1bf67ef7f6128c894d258f01baa25296}
+
+\item 
+int {\bf is\-Default}\label{dir_8c_0c015e0f19ed9410d3c6910287b0294b}
+
+\item 
+int {\bf is\-T}\label{dir_8c_eb25c0813c5be498509bf1cfaffd5f9d}
+
+\item 
+int {\bf is\-Time\-Field} = TIME\_\-A\label{dir_8c_a6e5358320a6115ba95819ece12c7b4a}
+
+\item 
+int {\bf is\-Q}\label{dir_8c_c2899548f1da85d5e578ceef94caa9ac}
+
+\item 
+int {\bf is\-S}\label{dir_8c_93832a34049bec62af7e25ba08642608}
+
+\item 
+int {\bf is\-W}\label{dir_8c_1ac30dc500ede985cec66d8a4035dd6b}
+
+\item 
+int {\bf is4} = 1\label{dir_8c_9760078654e701becdc081dc0a457c8b}
+
+\item 
+int {\bf is\-Reverse}\label{dir_8c_41a90acb7ea2f779996ac9e287753d73}
+
+\item 
+int {\bf is\-Neg}\label{dir_8c_4a17bc032c2a40a40d15a4c0a7b7dc2f}
+
+\item 
+int {\bf skip\-A}\label{dir_8c_654267ba8616a84f080facb53d923062}
+
+\item 
+int {\bf skip\-W}\label{dir_8c_5d9429429b82914a1695c4b7196225da}
+
+\item 
+int {\bf skip\-C}\label{dir_8c_7bfad51d9705a90f89e1a16d194cd402}
+
+\item 
+int {\bf skip\-D}\label{dir_8c_b0137346ce016474f6a139e39463d3c2}
+
+\item 
+int {\bf skip\-S}\label{dir_8c_3f359b8896d5dc8250b894889afa7fb2}
+
+\item 
+int {\bf skip\-T}\label{dir_8c_2f3568e0532095431561eb0ff1e7a44e}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Alex Kort, 4-9-06, Program 3, {\bf dir.c}{\rm (p.\,\pageref{dir_8c})} 
+
+\subsection{Function Documentation}
+\index{dir.c@{dir.c}!alphabetsort@{alphabetsort}}
+\index{alphabetsort@{alphabetsort}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}struct dirent$\ast$$\ast$ alphabetsort (DIR $\ast$ {\em dirp}, char $\ast$ {\em path})}\label{dir_8c_2684b144ccffca43c2bd84d19795f700}
+
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em dirp}]The directory to open \item[{\em path}]String of the pathname to open \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]An array of dirents of all the elements in the directory \end{Desc}
+\index{dir.c@{dir.c}!bare@{bare}}
+\index{bare@{bare}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void bare ()}\label{dir_8c_d4957954133b9e627d0b769ea5851a4b}
+
+
+display with no heading or summary \index{dir.c@{dir.c}!comparedate@{comparedate}}
+\index{comparedate@{comparedate}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int comparedate (struct tm $\ast$ {\em tm}, struct tm $\ast$ {\em tm2})}\label{dir_8c_e080fb0b0c9f9f1b39792d9c03f7ad11}
+
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em $\ast$tm}]The first time to compare \item[{\em $\ast$tm2}]The second time to compare \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]1 if greater, -1 if less, or zero if equal \end{Desc}
+\index{dir.c@{dir.c}!dirsort@{dirsort}}
+\index{dirsort@{dirsort}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}struct dirent$\ast$$\ast$ dirsort (DIR $\ast$ {\em dirp}, char $\ast$ {\em path})}\label{dir_8c_13b4a073dc6dca161b39fdfd42f6a6e2}
+
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em dirp}]The directory to open \item[{\em path}]String of the pathname to open \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]An array of dirents of all the elements in the directory \end{Desc}
+\index{dir.c@{dir.c}!extsort@{extsort}}
+\index{extsort@{extsort}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}struct dirent$\ast$$\ast$ extsort (DIR $\ast$ {\em dirp}, char $\ast$ {\em path})}\label{dir_8c_14a9483372576e318550bc8c78065a86}
+
+
+/$\ast$$\ast$ \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em dirp}]The directory to open \item[{\em path}]String of the pathname to open \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]An array of dirents of all the elements in the directory \end{Desc}
+\index{dir.c@{dir.c}!getExt@{getExt}}
+\index{getExt@{getExt}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ get\-Ext (char $\ast$ {\em name})}\label{dir_8c_b5146e12b68e0fa300b937c05e77e0ea}
+
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em name}]The name of the file whose extension to return \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]A string of the file's extension \end{Desc}
+\index{dir.c@{dir.c}!main@{main}}
+\index{main@{main}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int main (int {\em argc}, char $\ast$ {\em argv}[$\,$])}\label{dir_8c_0ddf1224851353fc92bfbff6f499fa97}
+
+
+Main function that calls the parsing function to get the command line options, then executes the options \index{dir.c@{dir.c}!parse@{parse}}
+\index{parse@{parse}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void parse (int {\em argc}, char $\ast$$\ast$ {\em argv})}\label{dir_8c_66fa8f960eac1bf561ba2cb8be0cc58a}
+
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em argc}]The number of arguments passed from the command line \item[{\em argv}]The list of strings from the command line\end{description}
+\end{Desc}
+After getting directories, get each option and set constants \index{dir.c@{dir.c}!printcwd@{printcwd}}
+\index{printcwd@{printcwd}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int printcwd (char $\ast$ {\em path})}\label{dir_8c_6d7841070d2de02a436b0c1ddd0a33f4}
+
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em path}]The path to get and print out \end{description}
+\end{Desc}
+\index{dir.c@{dir.c}!printdir@{printdir}}
+\index{printdir@{printdir}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void printdir ()}\label{dir_8c_c92ccf131b6252a18153ea39ca6786ed}
+
+
+Function that does all the printing work as well as formats according to the command line options
+
+Determine the sorting method
+
+get the correct time as specified in the command line
+
+symbolic links
+
+directories only print out the files according to attributes from command line and file types
+
+read only files
+
+default year is 4 digits, if it was unset then print only last 2
+
+print the date \index{dir.c@{dir.c}!separator@{separator}}
+\index{separator@{separator}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ separator (int {\em input})}\label{dir_8c_39dc54c3a499efadd208cc6482f2034f}
+
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em input}]The int to convert into a comma string \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]A string of the converted integer \end{Desc}
+\index{dir.c@{dir.c}!sizesort@{sizesort}}
+\index{sizesort@{sizesort}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}struct dirent$\ast$$\ast$ sizesort (DIR $\ast$ {\em dirp}, char $\ast$ {\em path})}\label{dir_8c_57b505a098447a3e63c6f3528cfe7508}
+
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em dirp}]The directory to open \item[{\em path}]String of the pathname to open \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]An array of dirents of all the elements in the directory \end{Desc}
+\index{dir.c@{dir.c}!subdirs@{subdirs}}
+\index{subdirs@{subdirs}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void subdirs ()}\label{dir_8c_10a72ffadf5d8b455877bf1757b31cfb}
+
+
+recurse through subdirectories and print out contents of each \index{dir.c@{dir.c}!timesort@{timesort}}
+\index{timesort@{timesort}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}struct dirent$\ast$$\ast$ timesort (DIR $\ast$ {\em dirp}, char $\ast$ {\em path})}\label{dir_8c_a8c9478da23709170570587079d936d9}
+
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em dirp}]The directory to open \item[{\em path}]String of the pathname to open \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]An array of dirents of all the elements in the directory \end{Desc}
+\index{dir.c@{dir.c}!visit@{visit}}
+\index{visit@{visit}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int visit (const char $\ast$ {\em string}, const struct stat $\ast$ {\em statbuf}, int {\em flags}, struct FTW $\ast$ {\em ftw})}\label{dir_8c_c32b0ee96972472713ac1bd2d057cf61}
+
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em string}]The pathname supplied \item[{\em statbuf}]the stat struct holding file info \item[{\em flags}]optional flag int \item[{\em ftw}]pointer to ftw struct \end{description}
+\end{Desc}
+\index{dir.c@{dir.c}!visitbare@{visitbare}}
+\index{visitbare@{visitbare}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int visitbare (const char $\ast$ {\em path}, const struct stat $\ast$ {\em statbuf}, int {\em flags}, struct FTW $\ast$ {\em ftw})}\label{dir_8c_22874809ed5faa8f2faa6185102b7803}
+
+
+Visit function for bare recursive function \index{dir.c@{dir.c}!wide@{wide}}
+\index{wide@{wide}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void wide ()}\label{dir_8c_296e4d798368b2136158a86aa0b74e4f}
+
+
+Print function sideways to a max width of 80 \index{dir.c@{dir.c}!widevisit@{widevisit}}
+\index{widevisit@{widevisit}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int widevisit (const char $\ast$ {\em path}, const struct stat $\ast$ {\em statbuf}, int {\em flags}, struct FTW $\ast$ {\em ftw})}\label{dir_8c_3cd01b34455f6845ef6d047bd9810351}
+
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em path}]The pathname supplied \item[{\em statbuf}]the stat struct holding file info \item[{\em flags}]optional flag int \item[{\em ftw}]pointer to ftw struct \end{description}
+\end{Desc}
+
+
+\subsection{Variable Documentation}
+\index{dir.c@{dir.c}!alltotalDirs@{alltotalDirs}}
+\index{alltotalDirs@{alltotalDirs}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf alltotal\-Dirs}}\label{dir_8c_a587854f656c188d807e579f71bb72f3}
+
+
+integer for the number of total dirs in all directories \index{dir.c@{dir.c}!dirs@{dirs}}
+\index{dirs@{dirs}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$ {\bf dirs}}\label{dir_8c_4321be2b2a89366608753004f8aa3c3b}
+
+
+a list of dirs to open \index{dir.c@{dir.c}!fileFound@{fileFound}}
+\index{fileFound@{fileFound}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf file\-Found}}\label{dir_8c_2aed5c59d349e05080633d8087708727}
+
+
+flag for detecting if a file was found \index{dir.c@{dir.c}!firstTime@{firstTime}}
+\index{firstTime@{firstTime}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf first\-Time} = 1}\label{dir_8c_d4066c6e83290040e1f715f0617d53f7}
+
+
+flag for the first time the current path is initialized \index{dir.c@{dir.c}!homeDir@{homeDir}}
+\index{homeDir@{homeDir}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf home\-Dir}}\label{dir_8c_ca6b88b088549f9d23c5ecbe9cea4b26}
+
+
+pathname of the home directory \index{dir.c@{dir.c}!i@{i}}
+\index{i@{i}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf i}}\label{dir_8c_cb559820d9ca11295b4500f179ef6392}
+
+
+general all purpose iterator \index{dir.c@{dir.c}!isA@{isA}}
+\index{isA@{isA}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf is\-A}}\label{dir_8c_2129538ee7dbdcdedb69a64dfb8df480}
+
+
+These variables are for flag setting when parsing commands \index{dir.c@{dir.c}!longest@{longest}}
+\index{longest@{longest}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf longest}}\label{dir_8c_8d0444808caf1022d650a2b0602968e8}
+
+
+integer for the longest pathname \index{dir.c@{dir.c}!numBytes@{numBytes}}
+\index{numBytes@{numBytes}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf num\-Bytes}}\label{dir_8c_d741d06221ef9f2ad307bffc9c9f4077}
+
+
+integer for the number of bytes in the directory \index{dir.c@{dir.c}!numBytesFree@{numBytesFree}}
+\index{numBytesFree@{numBytesFree}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf num\-Bytes\-Free}}\label{dir_8c_cd7bf78e7f342d037b25cfea5b8dca59}
+
+
+integer for the number of free bytes in the directory \index{dir.c@{dir.c}!numDirs@{numDirs}}
+\index{numDirs@{numDirs}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf num\-Dirs}}\label{dir_8c_88182a8b94b6142338f7d30fc24dd232}
+
+
+integer for the number of directories in the directory \index{dir.c@{dir.c}!numFiles@{numFiles}}
+\index{numFiles@{numFiles}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf num\-Files}}\label{dir_8c_c55fe61967bfc3ea816d6d4ed88a142c}
+
+
+integer for the number of files in the directory \index{dir.c@{dir.c}!prevdir@{prevdir}}
+\index{prevdir@{prevdir}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf prevdir}}\label{dir_8c_2426c3015451af8005d80554bed16c05}
+
+
+pathname of a temporary directory \index{dir.c@{dir.c}!status@{status}}
+\index{status@{status}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf status}}\label{dir_8c_6e27f49150e9a14580fb313cc2777e00}
+
+
+integer for the status of the stat struct \index{dir.c@{dir.c}!totalBytes@{totalBytes}}
+\index{totalBytes@{totalBytes}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}long {\bf total\-Bytes}}\label{dir_8c_1f2d4bead755d142efaa0382f5f9ecbe}
+
+
+integer for the number of total bytes in all directories \index{dir.c@{dir.c}!totalBytesFree@{totalBytesFree}}
+\index{totalBytesFree@{totalBytesFree}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}long {\bf total\-Bytes\-Free}}\label{dir_8c_09f1e3f8488dd4ef7ec5394d86d3e205}
+
+
+integer for the number of total bytes free in all directories \index{dir.c@{dir.c}!totalDirs@{totalDirs}}
+\index{totalDirs@{totalDirs}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf total\-Dirs}}\label{dir_8c_24d5c035dc8085a73e30b0ec9317f3e8}
+
+
+integer for the number of total dirs to open \index{dir.c@{dir.c}!totalFiles@{totalFiles}}
+\index{totalFiles@{totalFiles}!dir.c@{dir.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf total\-Files}}\label{dir_8c_4802117084c7fa03548df0b43d21cafb}
+
+
+integer for the number of total files in all directories 
